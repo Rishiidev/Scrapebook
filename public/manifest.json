@@ -1,0 +1,24 @@
+{
+  "name": "My Comfort Corner — Scrapbook",
+  "short_name": "Comfort Corner",
+  "description": "A cozy, intimate space made to make you smile after a long and difficult day.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF8F2",
+  "theme_color": "#7D1201",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/pwa_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa_icon.png",
+      "sizes": "191x191",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -24,6 +24,15 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   title: 'My Comfort Corner — Scrapbook',
   description: 'A cozy, intimate space made to make you smile after a long and difficult day.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Comfort Corner',
+  },
+  icons: {
+    apple: '/images/pwa_icon.png',
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -34,6 +43,21 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     >
       <body suppressHydrationWarning className="bg-[#FCF8F2] text-stone-800 selection:bg-[#7D1201]/10 selection:text-[#7D1201]">
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+                    console.log('Comfort SW registered:', reg.scope);
+                  }).catch(function(err) {
+                    console.warn('Comfort SW registration skipped:', err);
+                  });
+                });
+              }
+            `
+          }}
+        />
       </body>
     </html>
   );
