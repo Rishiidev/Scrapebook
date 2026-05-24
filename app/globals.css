@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --font-caveat: var(--font-caveat), "Caveat", cursive;
+  --font-hand: var(--font-patrick-hand), "Patrick Hand", cursive;
+  --font-quicksand: var(--font-quicksand), "Quicksand", sans-serif;
+  
+  --color-cherry: #7D1201;
+  --color-cherry-dark: #560c00;
+  --color-cherry-light: #A4250E;
+  --color-cream: #FCF8F2;
+  --color-cream-dark: #F3EAE0;
+  --color-paper-warm: #FAF5EE;
+  
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 8s ease-in-out infinite;
+  --animate-sparkle: sparkle 2.5s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-wiggle: wiggle 4s ease-in-out infinite;
+  --animate-gentle-pulse: gentle-pulse 3s ease-in-out infinite;
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0) rotate(1deg); }
+    50% { transform: translateY(-14px) rotate(-1.5deg); }
+  }
+  @keyframes gentle-pulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+  }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(0.9) rotate(-3deg); }
+    50% { opacity: 1; transform: scale(1.1) rotate(3deg); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-1.5deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+}
+
+/* Custom Scrapbook Styling */
+
+.bg-scrapbook-grid {
+  background-image: 
+    linear-gradient(to right, rgba(125, 18, 1, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 18, 1, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-scrapbook-ruled {
+  background-image: linear-gradient(rgba(125, 18, 1, 0.05) 1px, transparent 1px);
+  background-size: 100% 28px;
+}
+
+/* Notebook margins or spiral wire styling */
+.scrapbook-spiral {
+  background-image: radial-gradient(circle, #7D1201 4px, transparent 4px),
+                    radial-gradient(circle, #7D1201 4px, transparent 4px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+/* Tear margins */
+.scrapbook-torn-left {
+  position: relative;
+}
+.scrapbook-torn-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 12px;
+  background-image: radial-gradient(circle at 0px 8px, transparent 4px, #FAF5EE 4.5px);
+  background-size: 12px 14px;
+  background-repeat: repeat-y;
+}
+
+/* Handwritten underlines */
+.scribble-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 6 C 20 4, 40 4, 60 6 C 80 8, 90 4, 100 6' fill='none' stroke='%237D1201' stroke-width='2' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E");
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+}
+
+.scribble-underline-yellow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 6 C 20 4, 40 4, 60 6 C 80 8, 90 4, 100 6' fill='none' stroke='%23EAB308' stroke-width='3' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E");
+  background-position: bottom;
+  background-size: 100% 8px;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+}
+
+/* Washi tape styling */
+.washi-tape-horizontal {
+  position: relative;
+  background: rgba(245, 158, 11, 0.22); /* gold-ish translucent washi tape */
+  backdrop-filter: blur(0.5px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.washi-tape-horizontal::before, .washi-tape-horizontal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background-color: #FAF5EE; /* matches background to rip the tape */
+}
+.washi-tape-horizontal::before {
+  left: -2px;
+  clip-path: polygon(100% 0, 0 15%, 80% 30%, 10% 45%, 90% 60%, 20% 75%, 100% 90%, 0 100%);
+}
+.washi-tape-horizontal::after {
+  right: -2px;
+  clip-path: polygon(0 0, 100% 10%, 20% 25%, 90% 40%, 10% 55%, 80% 70%, 0 90%, 100% 100%);
+}
+
+.washi-tape-red {
+  background: rgba(125, 18, 1, 0.2); /* red translucent washi */
+}
+
+/* Custom Scrollbar for notes and overlays */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 18, 1, 0.15);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 18, 1, 0.3);
+}
+
+/* Hide default audio controls but keep accessible */
+.audio-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

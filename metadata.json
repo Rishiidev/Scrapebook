@@ -1,0 +1,6 @@
+{
+  "name": "Cozy Digital Scrapbook",
+  "description": "A warm digital scrapbook space beautifully personalized and made with all the love by Dhruvi for Shubham to find comfort and safety.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
